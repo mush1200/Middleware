@@ -34,4 +34,4 @@ npm run dev
 ```
 6. 出現以下訊息後，即可在 http://localhost:3000 開始使用
 <br>
-The Express server is running on http://localhost:3000.
+App running on port 3000.
