@@ -1,6 +1,9 @@
 const moment = require('moment')
 
 const tools = {
+  randomId: () => {
+    return Math.floor(Math.random() * 100)
+  },
   requestInfoDisplay: (req) => {
     const requestUnixTime = Date.now()
     const requestTimeStamp = moment(requestUnixTime).format('YYYY-MM-DD HH:mm:ss')
