@@ -2,18 +2,20 @@
 const express = require('express')
 const app = express()
 const port = 3000
-//載入moment
-const moment = require('moment')
+//載入tools
+const { requestInfoDisplay, responseInfoDisplay } = require('./tools')
 
 app.use((req, res, next) => {
-  const unixTime = Date.now()
-  const timeStamp = moment(unixTime).format('YYYY-MM-DD HH:mm:ss')
-  const method = req.method
-  const url = req.url
-  const msg = timeStamp + '|' + method + url
-  console.log(msg)
+  const [requestMsg, requestUnixTime] = requestInfoDisplay(req)
+  console.log(requestMsg)
+
+  res.on('finish', () => {
+    const responseMsg = responseInfoDisplay(res, requestUnixTime)
+    console.log(responseMsg)
+  })
   next()
 })
+
 
 app.get('/', (req, res) => {
   res.send('列出全部 Todo')
