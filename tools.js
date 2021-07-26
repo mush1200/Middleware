@@ -16,7 +16,7 @@ const tools = {
     const method = res.req.method
     const url = res.req.url
     const responseUnixTime = Date.now()
-    const responseTimeStamp = moment().format('YYY-MM-DD HH:mm:ss')
+    const responseTimeStamp = moment().format('YYYY-MM-DD HH:mm:ss')
     const duration = responseUnixTime - requestUnixTime
     const responseMsg = `${responseTimeStamp} | ${method} from ${url} | total time: ${duration}ms`
     return responseMsg
